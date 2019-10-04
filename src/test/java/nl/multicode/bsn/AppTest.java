@@ -7,19 +7,16 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class AppTest {
-
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
-
-    private App app;
 
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(outContent));
-        app = new App();
     }
 
     @After
@@ -28,14 +25,15 @@ public class AppTest {
     }
 
     @Test
-    public void main_null_args() {
-        app.main(null);
-        assertEquals(10, outContent.toString().length());
+    public void main_args() {
+        App.main(new String[]{"validate", "218996755"});
+        assertEquals("218996755 is valid bsn\n", outContent.toString());
     }
 
     @Test
     public void main_no_args() throws ArrayIndexOutOfBoundsException {
-        app.main(new String[]{});
-        assertEquals(10, outContent.toString().length());
+        App.main(null);
+        assertEquals(9, outContent.toString().trim().length());
+        assertTrue(outContent.toString().trim().matches("[0-9]{9}"));
     }
 }
