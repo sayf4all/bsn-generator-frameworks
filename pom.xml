@@ -19,7 +19,7 @@
         <pitest.threshold>95</pitest.threshold>
         <junit.version>4.11</junit.version>
         <validation-api.version>2.0.0.Final</validation-api.version>
-        <hibernate-validator.version>6.0.2.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.1.0.Final</hibernate-validator.version>
         <hibernate-validator-annotation-processor.version>6.0.2.Final</hibernate-validator-annotation-processor.version>
         <javax.el-api.version>3.0.0</javax.el-api.version>
         <javax.el.version>2.2.6</javax.el.version>
